@@ -20,23 +20,24 @@ $(function(){
                            var cellNum = Math.floor((Math.floor(i /9))/3) * 3 + Math.floor(j/3);
 
                            if( cellNum == 0){
-                               $cell.css({background: "lightgrey"});
+                               $cell.addClass("grey");
                            } else if(cellNum ==1){
-                               $cell.css({background: "lightyellow"});
+                               $cell.addClass("yellow");
+
                            } else if(cellNum ==2){
-                               $cell.css({background: "lightgrey"});
+                               $cell.addClass("grey");
                            }else if(cellNum ==3){
-                               $cell.css({background: "lightyellow"});
+                                $cell.addClass("yellow");
                            }else if(cellNum ==4){
-                               $cell.css({background: "lightgrey"});
+                               $cell.addClass("grey");
                            }else if(cellNum ==5){
-                               $cell.css({background: "lightyellow"});
+                               $cell.addClass("yellow");
                            }else if(cellNum ==6){
-                               $cell.css({background: "lightgrey"});
+                               $cell.addClass("grey");
                            }else if(cellNum ==7){
-                               $cell.css({background: "lightyellow"});
+                               $cell.addClass("yellow");
                            }else if(cellNum ==8){
-                               $cell.css({background: "lightgrey"});
+                               $cell.addClass("grey");
                            }
 
 
@@ -49,7 +50,7 @@ $(function(){
                                }
                            });
                            $cell.keyup(function(event){
-
+                               // console.log($cell.hasClass("grey"));
                                var n = event.which;
                                if(n==8) return;
                                var currentVal = $(this).find("input").val();
@@ -61,10 +62,15 @@ $(function(){
                                if(check(arr, i, j,currentVal)){
                                    arr[i][j] = currentVal;
                                    $(this).find("input").css({color: "black"});
+
                                } else{
                                    // alert("incorrect number");
                                    $(this).find("input").css({color: "red"});
                                }
+
+                               var cellColor = $(this).attr("class").slice(5);
+                               $(this).find("input").css({background: "light"+cellColor});
+
                                if(solved(arr)){
                                    alert("You solved the puzzle! Good Job!");
                                }
