@@ -19,3 +19,9 @@ html, head, body, div,a{
 .cell{
     float:left;
 }
+
+.cell > input{
+    display: block;
+    width: 90%;
+    height: 90%;
+}
