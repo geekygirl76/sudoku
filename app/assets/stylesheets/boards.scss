@@ -1,0 +1,21 @@
+// Place all the styles related to the Boards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, head, body, div,a{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    font-family:  sans-serif;
+    vertical-align: baseline;
+}
+
+.goup:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.cell{
+    float:left;
+}
