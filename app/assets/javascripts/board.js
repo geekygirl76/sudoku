@@ -17,6 +17,29 @@ $(function(){
                            var cell = (row[j] == "." ? "" : row[j] );
                            var $cell = $("<div class='cell' data-id="+ j +">"+cell + "</div>");
                            $row.append($cell);
+                           var cellNum = Math.floor((Math.floor(i /9))/3) * 3 + Math.floor(j/3);
+
+                           if( cellNum == 0){
+                               $cell.css({background: "lightgrey"});
+                           } else if(cellNum ==1){
+                               $cell.css({background: "lightyellow"});
+                           } else if(cellNum ==2){
+                               $cell.css({background: "lightgrey"});
+                           }else if(cellNum ==3){
+                               $cell.css({background: "lightyellow"});
+                           }else if(cellNum ==4){
+                               $cell.css({background: "lightgrey"});
+                           }else if(cellNum ==5){
+                               $cell.css({background: "lightyellow"});
+                           }else if(cellNum ==6){
+                               $cell.css({background: "lightgrey"});
+                           }else if(cellNum ==7){
+                               $cell.css({background: "lightyellow"});
+                           }else if(cellNum ==8){
+                               $cell.css({background: "lightgrey"});
+                           }
+
+
                            $cell.click(function(event){
                                event.preventDefault();
                                if($(this).text()=="" ){
