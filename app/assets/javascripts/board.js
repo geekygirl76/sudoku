@@ -43,6 +43,9 @@ $(function(){
 
                            $cell.click(function(event){
                                event.preventDefault();
+
+
+
                                if($(this).text()=="" ){
                                    var $input = $("<input type='text'>");
                                    $(this).append($input);
