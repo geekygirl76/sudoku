@@ -28,17 +28,22 @@ $(function(){
                            $cell.keyup(function(event){
 
                                var n = event.which;
+                               if(n==8) return;
                                var currentVal = $(this).find("input").val();
                                // console.log(currentVal);
                                var j = $(this).data("id");
                                // console.log(j);
                                var i = $(this).closest(".row").data("id");
+                               arr[i][j] = ".";
                                if(check(arr, i, j,currentVal)){
                                    arr[i][j] = currentVal;
                                    $(this).find("input").css({color: "black"});
                                } else{
                                    // alert("incorrect number");
                                    $(this).find("input").css({color: "red"});
+                               }
+                               if(solved(arr)){
+                                   alert("You solved the puzzle! Good Job!");
                                }
                            });
                        }
@@ -65,12 +70,23 @@ function check(board, i, j, c){
 
         if (board[k][j] == c || board[i][k] == c
             || board[Math.floor(cellRow + k /3)][cellCol + k %3] == c){
-               console.log(k, i, j, c, cellRow, cellCol);
-
-               console.log(board[i][k]);
+               // console.log(k, i, j, c, cellRow, cellCol);
+ //
+ //               console.log(board[i][k]);
 
                 return false;
             }
+    }
+    return true;
+}
+
+function solved(board){
+    for (var i=0; i<9; i++){
+        for(var j=0; j<9; j++){
+            if (board[i][j] == "."){
+                return false;
+            }
+        }
     }
     return true;
 }
